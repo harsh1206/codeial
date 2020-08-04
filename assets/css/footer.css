@@ -1,0 +1,19 @@
+footer {
+  background-color: #9da1a5;
+  height: 10%;
+  padding: 20px; }
+  footer #footer-content {
+    display: flex; }
+    footer #footer-content #res-rights {
+      color: white;
+      font-weight: 700; }
+    footer #footer-content #footer-list ul {
+      list-style: none;
+      float: right;
+      margin: 0px; }
+    footer #footer-content #footer-list li {
+      display: inline-block;
+      margin-right: 16px; }
+    footer #footer-content #footer-list a {
+      text-decoration: none;
+      color: white; }

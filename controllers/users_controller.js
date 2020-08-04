@@ -7,15 +7,34 @@ module.exports.profile = function(req, res){
 };
 
 module.exports.signUp=function(req,res){
+
+    if(req.isAuthenticated())
+    {
+        return res.redirect('/users/profile');
+    }  
+
     return res.render('user_sign_up',{
         title:'Sign Up'
     })
 };
 module.exports.signIn=function(req,res){
+
+    // if (req.isAuthenticated()) {
+    //     return res.redirect('/');
+    // }
+
+    if(req.isAuthenticated())
+    {
+        return res.redirect('/users/profile');
+    }  
+
+
     return res.render('user_sign_in',{
         title:'Sign In'
     })
-};
+
+}
+
 module.exports.create=function(req,res){
 
 
@@ -28,7 +47,7 @@ module.exports.create=function(req,res){
 
       if(err)
       {
-          console.log('error in finding user in signing up');
+          console.log('error in finding user in signing up',err);
           return;
       }
       
@@ -37,7 +56,7 @@ module.exports.create=function(req,res){
           User.create(req.body,function(err,user){
            
              if(err){
-                 console.log('error in creating a user');
+                 console.log('error in creating a user',err);
                  return;
              }
 
@@ -57,8 +76,13 @@ module.exports.create=function(req,res){
 // sign in and create a session for user 
 module.exports.createSession=function(req,res){
 
-    
-    
+    return res.redirect('/');
 
+}
 
+module.exports.desstroySession=function(req,res){
+
+    req.logout();
+
+    return res.redirect('/');
 }

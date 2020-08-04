@@ -1,0 +1,42 @@
+footer{
+    background-color:#9da1a5;
+    height: 10%;
+    padding: 20px;
+    
+    #footer-content{
+           
+        display: flex;
+    
+
+        #res-rights{
+            
+          color: white;
+          font-weight: 700;    
+
+        }
+
+       #footer-list{
+         
+            ul{  
+             
+               list-style: none;
+              float: right;
+               margin:0px
+              }
+    
+          li{
+              display: inline-block;
+               margin-right:16px;
+            }
+
+        
+        
+          a{
+             text-decoration: none;
+              color: white;    
+           }
+       
+        } 
+  }
+
+}
