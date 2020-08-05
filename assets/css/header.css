@@ -10,7 +10,8 @@ header {
     left: 5%; }
     header #header-content #site-name {
       color: white;
-      font-size: xxx-large; }
+      font-size: xxx-large;
+      font-weight: 800; }
     header #header-content #header-list {
       position: absolute;
       left: 70%; }
