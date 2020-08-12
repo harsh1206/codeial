@@ -30,7 +30,7 @@ module.exports.signUp=function(req,res){
 
     if(req.isAuthenticated())
     {
-        return res.redirect('/users/profile');
+        return res.redirect('/users/sign-up');
     }  
 
     return res.render('user_sign_up',{
@@ -67,8 +67,7 @@ module.exports.create=function(req,res){
 
       if(err)
       {
-          console.log('error in finding user in signing up',err);
-          return;
+        req.flash('error', err); return
       }
       
       if(!user)
@@ -76,10 +75,9 @@ module.exports.create=function(req,res){
           User.create(req.body,function(err,user){
            
              if(err){
-                 console.log('error in creating a user',err);
-                 return;
+                req.flash('error', err); return
              }
-
+             req.flash('success', 'You have signed up, login to continue!');
              return res.redirect('/users/sign-in');
 
           })
@@ -96,13 +94,20 @@ module.exports.create=function(req,res){
 // sign in and create a session for user 
 module.exports.createSession=function(req,res){
 
+    
+    req.flash('success','Logged in Successfully');
+
     return res.redirect('/');
 
 }
 
 module.exports.desstroySession=function(req,res){
 
+    
+    req.flash('success','You have logged out !');  
+    console.log(req.flash);
     req.logout();
+
 
     return res.redirect('/');
 }
