@@ -12,7 +12,7 @@ const MongoStore=require('connect-mongo')(session);
 const sassMiddleware=require('node-sass-middleware');
 const flash = require('connect-flash');
 const customMware=require('./config/middleware');
-const multer=require('multer');
+// const multer=require('multer');
 
 
 app.use(sassMiddleware({
@@ -30,6 +30,8 @@ app.use(express.urlencoded());
 app.use(cookieParser());
 
 app.use(express.static('./assets'));
+// make the uploads path availaible to the browser
+app.use('/uploads',express.static(__dirname+'/uploads'));
 
 app.use(expressLayouts);
 // extract style and scripts from sub pages into the layout
