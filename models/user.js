@@ -32,6 +32,12 @@ const userSchema=new mongoose.Schema({
 
 });
 
+userSchema.methods.toJSON = function() {
+    var obj = this.toObject();
+    delete obj.password;
+    return obj;
+   }
+
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null,path.join(__dirname,'..',AVATAR_PATH));
