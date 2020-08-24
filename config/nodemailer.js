@@ -25,7 +25,7 @@ let renderTemplate=(data,relativePath) => {
           data,
           function(err,template){
                
-            if(err){Z
+            if(err){
                 console.log('error in renderingtemplate',err);
                 return;
             }
