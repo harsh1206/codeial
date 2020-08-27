@@ -20,8 +20,10 @@
                     let newPost=newPostDom(data.data.post);
 
                     $('#posts-list-container>ul').prepend(newPost);
-
-                    console.log("new post",newPost);
+                    
+                     console.log("new post",newPost);
+                     
+                     new ToggleLike($(' .toggle-like-button',newPost));
 
                     new Noty({
                         theme:'relax',
@@ -69,6 +71,15 @@
            <small> 
             ${post.user.name}
            </small> 
+
+           <br>
+           <small>
+
+           <a href="/likes/toggle/?id=${post._id}&type=Post" data-likes="0" class="toggle-like-button" style="border:1px solid black;margin-left: 2%;">
+               0 Likes
+             </a>
+
+           </small>
     
          </p>
        

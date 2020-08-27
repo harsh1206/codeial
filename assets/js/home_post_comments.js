@@ -36,7 +36,9 @@ class PostComments{
                     let newComment = pSelf.newCommentDom(data.data.comment);
                     $(`#post-comments-${postId}`).prepend(newComment);
                     pSelf.deleteComment($(' .delete-comment-button', newComment));
-
+                    
+                    new ToggleLike($(' .toggle-like-button',newComment));
+                    
                     new Noty({
                         theme: 'relax',
                         text: "Comment published ajax!",
@@ -69,6 +71,13 @@ class PostComments{
                             <br>
                             <small>
                                 ${comment.user.name}
+                            </small>
+
+
+                            <small>
+                            <a href="/likes/toggle/?id=${comment._id}&type=Comment" data-likes="0" class="toggle-like-button" style="border:1px solid black;margin-left: 2%;">
+                            0 Likes
+                            </a>
                             </small>
                         </p>    
 
