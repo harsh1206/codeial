@@ -23,3 +23,19 @@
             <p><%= profile_user.email %></p>
 
         <%}%>
+
+ 
+        <a href="/freindship/toggle/?id=<%= profile_user.id %>" class="toggle-freindship-button">ADD/REMOVE</a> 
+        
+          
+
+        <script src="/js/toggle_freindship.js"></script>
+        <script>
+
+            $('.toggle-freindship-button').each(function(){
+             let self = this;
+             let toggleFreindship = new ToggleFreindship(self);
+           });
+
+        </script>  
+           

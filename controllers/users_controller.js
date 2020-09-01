@@ -2,17 +2,38 @@ const User=require('../models/user');
 const fs=require('fs');
 const path=require('path');
 const Noty=require('noty');
+const Friendship = require('../models/freindship');
 
 
 
 module.exports.profile = function(req, res){
-    User.findById(req.params.id,function(err,user){
-    return res.render('user_profile', {
-        title: 'User Profile',
-        profile_user:user
-    })
+       
+      
+
+    User.findById(req.params.id,function(err,user){   
+           
+      
+         
+
+         console.log(user);
+        
+
+         return res.render('user_profile', {
+            title: 'User Profile',
+             profile_user:user,
+         }) 
 
    });
+
+    //   let user=User.findById(req.params.id);
+
+    //   console.log(user);
+
+    //   return res.render('user_profile',{
+    //       title:'User Profile',
+    //       profile_user:user
+    //   });
+
 };
 
 

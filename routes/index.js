@@ -12,6 +12,7 @@ router.use('/posts',require('./posts'));
 router.use('/comments',require('./comments'))
 router.use('/reset-password',require('./reset_password'));
 router.use('/likes',require('./likes'));
+router.use('/freindship',require('./freindship'));
 
 router.use('/api',require('./api'));
 
